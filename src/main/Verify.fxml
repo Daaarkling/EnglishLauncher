@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="540.0" prefWidth="960.0" styleClass="background" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.VerifyController">
+  <stylesheets>
+    <URL value="@../resources/style.css" />
+  </stylesheets>
+<children><FlowPane alignment="CENTER" columnHalignment="CENTER" prefHeight="540.0" prefWidth="960.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+<children><ProgressIndicator fx:id="progress" visible="false" />
+</children></FlowPane><VBox alignment="CENTER" layoutX="145.0" prefHeight="200.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+<children><ImageView fitWidth="680.0" pickOnBounds="true" preserveRatio="true">
+<image>
+<Image url="@../resources/anglictina.png" />
+</image></ImageView>
+</children></VBox><VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="200.0">
+<children><GridPane>
+  <columnConstraints>
+    <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" minWidth="10.0" prefWidth="600.0" />
+    <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+  </columnConstraints>
+  <rowConstraints>
+    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+    <RowConstraints minHeight="10.0" prefHeight="60.0" vgrow="SOMETIMES" />
+  </rowConstraints>
+<children><TextField fx:id="key" prefHeight="60.0" prefWidth="730.0" styleClass="text-field-key" GridPane.rowIndex="1">
+<HBox.margin>
+<Insets right="10.0" />
+</HBox.margin></TextField><Button fx:id="btnActive" mnemonicParsing="false" onAction="#handleBtnVerify" prefHeight="60.0" prefWidth="200.0" styleClass="button-verify" text="OVĚŘIT LICENCI" GridPane.columnIndex="1" GridPane.rowIndex="1">
+<GridPane.margin>
+<Insets left="10.0" />
+</GridPane.margin></Button><Label styleClass="label-key" text="Vložte licenci (10 znaků)" />
+</children>
+<VBox.margin>
+<Insets bottom="10.0" left="50.0" right="50.0" />
+</VBox.margin>
+</GridPane><Label fx:id="errorMessage" styleClass="error-message" text="Nepodařilo se ověřit licenci, zkontrolujte připojení k internetu." />
+</children></VBox>
+</children>
+</AnchorPane>

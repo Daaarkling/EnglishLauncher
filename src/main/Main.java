@@ -11,14 +11,12 @@ import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import model.Activator;
-import java.io.IOException;
 import javafx.scene.image.Image;
 
 
 public class Main extends Application {
 
     private Stage stage;
-	private boolean activationResult = false;
     private final double MINIMUM_WINDOW_WIDTH = 960.0;
     private final double MINIMUM_WINDOW_HEIGHT = 540.0;
 
@@ -38,7 +36,7 @@ public class Main extends Application {
             stage.setMinWidth(MINIMUM_WINDOW_WIDTH);
             stage.setMinHeight(MINIMUM_WINDOW_HEIGHT);
 			
-			InputStream stream = getClass().getResourceAsStream("icon.png");
+			InputStream stream = getClass().getResourceAsStream("/resources/icon.jpg");
 			if(stream != null){
 				stage.getIcons().add(new Image(stream)); 			
 			}

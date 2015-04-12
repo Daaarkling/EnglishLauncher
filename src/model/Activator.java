@@ -9,6 +9,11 @@ import java.util.logging.Logger;
 
 public class Activator {
 
+	public static final int STATUS_OK = 1;
+	public static final int STATUS_NO = 2;
+	public static final int STATUS_EXP = 3;
+	
+	
 	public static boolean activate(String key) throws IOException {
 
 		URL url = new URL("http://beta.anglictina-vyukovy-program.cz/api/licence/?key=" + key);

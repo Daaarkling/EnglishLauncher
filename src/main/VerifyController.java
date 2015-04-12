@@ -48,19 +48,21 @@ public class VerifyController extends AnchorPane implements Initializable {
 		progress.setVisible(true);
 		key.setDisable(true);
 		
-		Task<Boolean> task = new Task<Boolean>() {
+		Task<Integer> task = new Task<Integer>() {
 
 			@Override
-			protected Boolean call() {							
+			protected Integer call() {							
 				if(key.getText().length() == 10){
 					try {
-						return Activator.activate(key.getText());
-					} catch (Exception e){
-						errorMessage.setText("Nepodařilo se ověřit licenci, zkontrolujte připojení k internetu.");
-						return false;
+						if(Activator.activate(key.getText())){
+							return Activator.STATUS_OK;
+						}
+						return Activator.STATUS_NO;
+					} catch (Exception e){						
+						return Activator.STATUS_EXP;
 					}
 				}				
-				return false;
+				return Activator.STATUS_NO;
 			}
 
 			@Override
@@ -71,10 +73,13 @@ public class VerifyController extends AnchorPane implements Initializable {
 				key.setDisable(false);
 				progress.setVisible(false);
 				
-				if(getValue()){					
+				if(getValue() == Activator.STATUS_OK){					
 					application.gotoMainMenu();
-				} else {
+				}
+				else if(getValue() == Activator.STATUS_NO) {
 					errorMessage.setText("Zadaný klíč není správný.");
+				} else {
+					errorMessage.setText("Nepodařilo se ověřit licenci, zkontrolujte připojení k internetu.");
 				}
 			}
 		};
